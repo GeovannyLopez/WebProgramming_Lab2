@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './bootstrap.min.css';
 import './MusicLibrary.css';
+import _ from 'lodash';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
@@ -45,6 +46,16 @@ function Hero() {
   );
 }
 
+///function: Stars
+///descripcion: Contains the list of stars
+function Stars({count}) {
+  return (
+    <div>
+      {_.range(count).map(i => <FontAwesomeIcon icon="star" key={i} />)}
+    </div>
+  );
+}
+
 ///function: Tableline
 ///descripcion: Contains the line of a table with a song information
 function Tableline({ songInfo }) {
@@ -55,6 +66,7 @@ function Tableline({ songInfo }) {
       <td>{songInfo.artist}</td>
       <td>{songInfo.album}</td>
       <td>{songInfo.year}</td>
+      <td><Stars count={songInfo.stars}/></td>
       <td>
         <a className="btn btn-primary" href="jsx-a11y/href-no-hash">
           <FontAwesomeIcon icon="eye" />
@@ -82,6 +94,7 @@ function Table({ songList }) {
           <th scope="col">Artist</th>
           <th scope="col">Album</th>
           <th scope="col">Year</th>
+          <th scope="col">Stars</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -95,6 +108,7 @@ function Table({ songList }) {
           <th scope="col">Artist</th>
           <th scope="col">Album</th>
           <th scope="col">Year</th>
+          <th scope="col">Stars</th>
           <th scope="col">Actions</th>
         </tr>
       </tfoot>
@@ -115,7 +129,7 @@ function Main({ songList }) {
               <h5>Find your music:</h5>
             </div>
             <div className="col-md-4 offset-md-4">
-              <a className="btn btn-success float-right" href="jsx-a11y/href-no-hash">
+              <a className="btn btn-success float-right" href="">
                 <FontAwesomeIcon icon="plus-circle" /> New
                 </a>
             </div>
@@ -128,7 +142,6 @@ function Main({ songList }) {
     </div>
   );
 }
-
 
 ///function: Footer
 ///descripcion: Contains the footer of the page

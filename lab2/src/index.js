@@ -4,10 +4,10 @@ import './index.css';
 import MusicLibrary from './MusicLibrary';
 import registerServiceWorker from './registerServiceWorker';
 
-
-const state ={
-    menuData: 
-    {
+///function: initializeData
+///descripcion: Used to get initialize information into localstorage
+function initializeData(){
+    let info = {
         userName : 'Geovanny',
         songs: [
             {
@@ -16,6 +16,7 @@ const state ={
                 artist : 'PXNDX',
                 album : 'Sangre Fría',
                 year : 2013,
+                stars : 5,
             },
             {
                 id : 2,
@@ -23,6 +24,7 @@ const state ={
                 artist : 'PXNDX',
                 album : 'Sangre Fría',
                 year : 2013,
+                stars : 5,
             },
             {
                 id : 3,
@@ -30,6 +32,7 @@ const state ={
                 artist : 'PXNDX',
                 album : 'Para ti con desprecio',
                 year : 2005,
+                stars : 5,
             },
             {
                 id : 4,
@@ -37,6 +40,7 @@ const state ={
                 artist : 'PXNDX',
                 album : 'Bonanza',
                 year : 2012,
+                stars : 4,
             },
             {
                 id : 5,
@@ -44,9 +48,23 @@ const state ={
                 artist : 'PXNDX',
                 album : 'Bonanza',
                 year : 2012,
+                stars : 5,
             }
         ]
-    }
+    };
+    localStorage.setItem('menuData', JSON.stringify(info));
+}
+
+///function: getMenuData
+///descripcion: Used to get the information to be displayed
+function getMenuData(){
+    initializeData();
+    var info = JSON.parse(localStorage.getItem('menuData'));
+    return info;
+}
+
+const state ={
+    menuData: getMenuData()
 };
 
 ReactDOM.render(<MusicLibrary {...state}/>, document.getElementById('root'));
