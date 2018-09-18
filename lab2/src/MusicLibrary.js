@@ -68,13 +68,13 @@ function Tableline({ songInfo }) {
       <td>{songInfo.year}</td>
       <td><Stars count={songInfo.stars}/></td>
       <td>
-        <a className="btn btn-primary" href="jsx-a11y/href-no-hash">
+        <a className="btn btn-primary">
           <FontAwesomeIcon icon="eye" />
         </a>
-        <a className="btn btn-info" href="jsx-a11y/href-no-hash">
+        <a className="btn btn-info">
           <FontAwesomeIcon icon="edit" />
         </a>
-        <a className="btn btn-danger" href="jsx-a11y/href-no-hash">
+        <a className="btn btn-danger">
           <FontAwesomeIcon icon="trash-alt" />
         </a>
       </td>
