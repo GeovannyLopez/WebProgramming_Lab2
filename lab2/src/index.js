@@ -54,19 +54,7 @@ function initializeData(){
     };
     localStorage.setItem('menuData', JSON.stringify(info));
 }
+initializeData();
 
-///function: getMenuData
-///descripcion: Used to get the information to be displayed
-function getMenuData(){
-    //This call is only to initialize the information into local storage
-    initializeData();
-    var info = JSON.parse(localStorage.getItem('menuData'));
-    return info;
-}
-
-const state ={
-    menuData: getMenuData()
-};
-
-ReactDOM.render(<MusicLibrary {...state}/>, document.getElementById('root'));
+ReactDOM.render(<MusicLibrary />, document.getElementById('root'));
 registerServiceWorker();

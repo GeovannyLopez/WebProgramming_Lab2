@@ -1,9 +1,9 @@
 import React from 'react';
 import SongList from './components/songList/SongList';
 
-function MusicLibrary({ menuData }) {
+function MusicLibrary() {
   return (
-      <SongList userName={menuData.userName} songs={menuData.songs} />
+      <SongList />
   );
 }
 
