@@ -1,9 +1,14 @@
 import React from 'react';
 import SongList from './components/songList/SongList';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function MusicLibrary() {
   return (
-      <SongList />
+    <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={SongList}/>
+    </Switch>
+    </BrowserRouter>
   );
 }
 
