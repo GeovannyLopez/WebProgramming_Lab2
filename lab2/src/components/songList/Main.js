@@ -22,7 +22,7 @@ function Stars({ count }) {
 
 ///function: Tableline
 ///descripcion: Contains the line of a table with a song information
-function Tableline({ songInfo }) {
+function TableRow({ songInfo }) {
     return (
         <tr>
             <th scope="row">{songInfo.id}</th>
@@ -63,7 +63,7 @@ function Table({ songList }) {
                 </tr>
             </thead>
             <tbody>
-                {songList.map((songInfo, i) => <Tableline songInfo={songInfo} key={i} />)}
+                {songList.map((songInfo, i) => <TableRow songInfo={songInfo} key={i} />)}
             </tbody>
             <tfoot>
                 <tr>
