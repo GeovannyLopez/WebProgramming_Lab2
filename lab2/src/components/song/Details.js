@@ -15,7 +15,7 @@ function Details(props) {
     }
 
     return (
-        <Layout userName={"Geo"}>
+        <Layout userName={SongApi.getUser()}>
             <div>
                 <h1 className="text-center">Details</h1>
 

@@ -86,9 +86,10 @@ export default class Main extends Component {
                                 <h5>Find your music:</h5>
                             </div>
                             <div className="col-md-4 offset-md-4">
-                                <a className="btn btn-success float-right" href="">
+                                <Link to='/Song/Create' className="btn btn-success float-right">
                                     <FontAwesomeIcon icon="plus-circle" /> New
-                                </a>
+                                </Link>
+
                             </div>
                         </div>
                         <br />
