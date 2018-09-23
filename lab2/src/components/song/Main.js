@@ -1,26 +1,18 @@
 import React, { Component } from "react";
 import '../../bootstrap.min.css';
 import '../../MusicLibrary.css';
-import _ from 'lodash';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
+import { Link } from 'react-router-dom';
+import Stars from '../shared/Stars';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+
 // Add all icons to the library so you can use it in your page
-library.add(fas, far)
+library.add(fas, far);
 
-///function: Stars
-///descripcion: Contains the list of stars
-function Stars({ count }) {
-    return (
-        <div>
-            {_.range(count).map(i => <FontAwesomeIcon icon="star" key={i} />)}
-        </div>
-    );
-}
-
-///function: Tableline
+///function: TableRow
 ///descripcion: Contains the line of a table with a song information
 function TableRow({ songInfo }) {
     return (
@@ -32,15 +24,15 @@ function TableRow({ songInfo }) {
             <td>{songInfo.year}</td>
             <td><Stars count={songInfo.stars} /></td>
             <td>
-                <a className="btn btn-primary" href="">
-                    <FontAwesomeIcon icon="eye" />
-                </a>
-                <a className="btn btn-info" href="">
-                    <FontAwesomeIcon icon="edit" />
-                </a>
-                <a className="btn btn-danger" href="">
-                    <FontAwesomeIcon icon="trash-alt" />
-                </a>
+            <Link to={`/Song/Details/${songInfo.id}`} className="btn btn-primary">
+                <FontAwesomeIcon icon="eye" />
+            </Link>
+            <Link to={`/Song/Edit/${songInfo.id}`} className="btn btn-info">
+                <FontAwesomeIcon icon="edit" />
+            </Link>
+            <Link to={`/Song/Delete/${songInfo.id}`} className="btn btn-danger">
+                <FontAwesomeIcon icon="trash-alt" />
+            </Link>
             </td>
         </tr>
     );

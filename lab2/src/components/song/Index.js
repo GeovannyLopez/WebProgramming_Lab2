@@ -3,19 +3,13 @@ import React, { Component } from "react";
 import Layout from '../layout/Layout';
 import Main from './Main';
 import Hero from './Hero';
+import SongApi from './SongApi';
 
-///function: getMenuData
-///descripcion: Used to get the information to be displayed
-function getMenuData(){
-    var info = JSON.parse(localStorage.getItem('menuData'));
-    return info;
-}
-
-export default class SongList extends Component{
+export default class Index extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            menuData: getMenuData()
+            menuData: SongApi.getAll()
         };
     }    
     render (){
