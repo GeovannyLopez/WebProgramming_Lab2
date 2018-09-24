@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom';
 import Layout from '../layout/Layout';
 
 function Details(props) {
-    const song = SongApi.getSong(
-        parseInt(props.match.params.id, 10)
-    );
+    const song = SongApi.getSong(props.match.params.id);
 
     if (!song) {
         return <div>Sorry, but the song was not found</div>

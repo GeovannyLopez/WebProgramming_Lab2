@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function Stars({ count }) {
     return (
         <div>
-            {_.range(5).map(i => <FontAwesomeIcon icon="star" color={i<count ? '' : 'gray'} key={i} />)}
+            {_.range(5).map(i => <FontAwesomeIcon icon="star" color={i < count ? '' : 'gray'} key={i} />)}
         </div>
     );
 }

@@ -14,10 +14,10 @@ library.add(fas, far);
 
 ///function: TableRow
 ///descripcion: Contains the line of a table with a song information
-function TableRow({ songInfo }) {
+function TableRow({ songInfo, number}) {
     return (
         <tr>
-            <th scope="row">{songInfo.id}</th>
+            <th scope="row">{number}</th>
             <td>{songInfo.name}</td>
             <td>{songInfo.artist}</td>
             <td>{songInfo.album}</td>
@@ -55,7 +55,7 @@ function Table({ songList }) {
                 </tr>
             </thead>
             <tbody>
-                {songList.map((songInfo, i) => <TableRow songInfo={songInfo} key={i} />)}
+                {songList.map((songInfo, i) => <TableRow songInfo={songInfo} key={i} number={i+1}/>)}
             </tbody>
             <tfoot>
                 <tr>

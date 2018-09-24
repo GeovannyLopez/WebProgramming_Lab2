@@ -7,15 +7,13 @@ import Layout from '../layout/Layout';
 
 ///function: confirmDelete
 ///descripcion: Used to confirm a delete, this redirects to main page
-function confirmDelete(id, history){
+function confirmDelete(id, history) {
     SongApi.delete(id);
     history.push('/');
 }
 
 function Delete(props) {
-    const song = SongApi.getSong(
-        parseInt(props.match.params.id, 10)
-    );
+    const song = SongApi.getSong(props.match.params.id);
 
     if (!song) {
         return <div>Sorry, but the song was not found</div>
@@ -24,7 +22,7 @@ function Delete(props) {
     return (
         <Layout userName={SongApi.getUser()}>
             <div>
-            <h1 className="text-center">¿Are you sure you want to delete the song?</h1>
+                <h1 className="text-center">¿Are you sure you want to delete the song?</h1>
 
                 <div className="col-md-12">
                     <div className="col-md-12">
@@ -50,7 +48,7 @@ function Delete(props) {
                                     <dt>Stars</dt>
                                     <dd><Stars count={song.stars} /></dd>
                                 </dl>
-                                <button type="button" className="btn btn-primary" onClick={() => {confirmDelete(props.match.params.id, props.history);}}>Confirm</button>
+                                <button type="button" className="btn btn-primary" onClick={() => { confirmDelete(props.match.params.id, props.history); }}>Confirm</button>
                                 <Link to='/' className="btn btn-danger">Cancel</Link>
                             </div>
                             <div className="col-md-4 offset-md-4">
