@@ -46,5 +46,17 @@ class SongApi {
         localStorage.setItem('menuData', JSON.stringify(info));
         return info;
     }
+
+    ///function: create
+    ///descripcion: Used to create a song
+    static edit(song) {
+        let info = JSON.parse(localStorage.getItem('menuData'));
+        let objIndex = info.songs.findIndex((obj => obj.id === song.id));
+
+        //Update object's name property.
+        info.songs[objIndex] = song;
+        localStorage.setItem('menuData', JSON.stringify(info));
+        return info;
+    }
 }
 export default SongApi
