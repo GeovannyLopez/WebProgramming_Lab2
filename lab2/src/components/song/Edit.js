@@ -73,7 +73,7 @@ class SongForm extends React.Component {
                                 <label htmlFor="ImageUrl">Image URL:</label>
                                 <input type="text" className="form-control" name="imageUrl" value={this.state.imageUrl} placeholder="Image URL"  onChange={this.onFieldChange} />
                             </div>
-                            <button type="submit" className="btn btn-primary">Create</button>
+                            <button type="submit" className="btn btn-primary">Edit</button>
                             <Link to='/' className="btn btn-danger">Cancel</Link>
                         </form>
                     </div>
@@ -86,7 +86,7 @@ class SongForm extends React.Component {
 
 function Edit(props) {
     return <Layout userName={SongApi.getUser()} title={"Create"}>
-        <h1 className="text-center">Create new song</h1>
+        <h1 className="text-center">Edit song</h1>
         <SongForm history={props.history} song={SongApi.getSong(props.match.params.id)}/>
     </Layout>
 }
