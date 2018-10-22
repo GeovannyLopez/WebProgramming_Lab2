@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import axios from 'axios';
 
 let userName = 'Geovanny';
@@ -15,7 +14,11 @@ class SongApi {
     ///descripcion: Used to create a song
     static create(song) {
         axios.post(endpoint, song)
-        .then(res => console.log(res.data));
+            .then(res => {
+                if (typeof res !== "undefined") {
+                    console.log(res.data);
+                }
+            });
     }
 
     ///function: getSong
@@ -52,25 +55,25 @@ class SongApi {
     ///function: delete
     ///descripcion: Used to delete a song by it's id
     static delete(id) {
-        var info = JSON.parse(localStorage.getItem('menuData'));
-        _.remove(info.songs, function (song) {
-            return song.id === id;
-        });
-
-        localStorage.setItem('menuData', JSON.stringify(info));
-        return info;
+        axios.delete(endpoint + '/' + id)
+            .then(res => {
+                if (typeof res !== "undefined") {
+                    console.log(res.data);
+                }
+            });
     }
 
     ///function: create
     ///descripcion: Used to create a song
     static edit(song) {
-        let info = JSON.parse(localStorage.getItem('menuData'));
-        let objIndex = info.songs.findIndex((obj => obj.id === song.id));
-
-        //Update object's name property.
-        info.songs[objIndex] = song;
-        localStorage.setItem('menuData', JSON.stringify(info));
-        return info;
+        let id = song._id;
+        delete song["_id"];
+        axios.put(endpoint + '/' + id, song)
+            .then(res => {
+                if (typeof res !== "undefined") {
+                    console.log(res.data);
+                }
+            });
     }
 }
 export default SongApi

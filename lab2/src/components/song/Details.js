@@ -22,9 +22,13 @@ export default class Details extends Component {
     }
     render() {
         if (this.state.status === 0) {
-            return (<div>Loading...</div>)
+            return (<Layout userName={SongApi.getUser()}>
+                <h1>Loading...</h1>
+            </Layout>)
         } else if (this.state.status !== 200) {
-            return (<div>Sorry, but the song was not found</div>)
+            return (<Layout userName={SongApi.getUser()}>
+                <h1>Sorry, but the song was not found...</h1>
+            </Layout>)
         } else {
             return (
                 <Layout userName={SongApi.getUser()}>
