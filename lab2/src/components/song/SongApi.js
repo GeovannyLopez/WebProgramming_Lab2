@@ -1,38 +1,52 @@
 import _ from 'lodash';
+import axios from 'axios';
+
+let userName = 'Geovanny';
+let endpoint = 'http://localhost:8080/api/v1/songs';
 
 class SongApi {
     ///function: getUser
     ///descripcion: Used to get the information of the current user
     static getUser() {
-        var info = JSON.parse(localStorage.getItem('menuData'));
-        return info.userName;
+        return userName;
     }
 
     ///function: create
     ///descripcion: Used to create a song
     static create(song) {
-        var info = JSON.parse(localStorage.getItem('menuData'));
-        info.songs.push(song);
-        localStorage.setItem('menuData', JSON.stringify(info));
-        return info;
+        axios.post(endpoint, song)
+        .then(res => console.log(res.data));
     }
 
     ///function: getSong
     ///descripcion: Used to get the information to be displayed for a song
-    static getSong(id) {
-        var info = JSON.parse(localStorage.getItem('menuData'));
-        var song = info.songs.find((song) => {
-            return song.id === id;
-        });
-
-        return song;
+    static getSong(id, callback) {
+        axios.get(endpoint + '/' + id)
+            .catch(error => {
+                console.log(error);
+                callback(null, error.response.status);
+            })
+            .then(res => {
+                if (typeof res !== "undefined") {
+                    console.log(res.data);
+                    var song = res.data;
+                    callback(song, res.status);
+                }
+            });
     }
 
     ///function: getAll
     ///descripcion: Used to get the information to be displayed
-    static getAll() {
-        var info = JSON.parse(localStorage.getItem('menuData'));
-        return info;
+    static getAll(callback) {
+        let info = {};
+        info.userName = userName;
+
+        axios.get(endpoint)
+            .then(res => {
+                console.log(res.data);
+                info.songs = res.data;
+                callback(info);
+            });
     }
 
     ///function: delete

@@ -3,20 +3,10 @@ import SongApi from './SongApi';
 import Layout from '../layout/Layout';
 import { Link } from 'react-router-dom';
 
-function guid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-  }
-
 class SongForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: guid(),
             name: '',
             artist: '',
             album: '',

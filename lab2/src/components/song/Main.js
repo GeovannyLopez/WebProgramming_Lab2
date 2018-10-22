@@ -24,13 +24,13 @@ function TableRow({ songInfo, number}) {
             <td>{songInfo.year}</td>
             <td><Stars count={songInfo.stars} /></td>
             <td>
-            <Link to={`/Song/Details/${songInfo.id}`} className="btn btn-primary">
+            <Link to={`/Song/Details/${songInfo._id}`} className="btn btn-primary">
                 <FontAwesomeIcon icon="eye" />
             </Link>
-            <Link to={`/Song/Edit/${songInfo.id}`} className="btn btn-info">
+            <Link to={`/Song/Edit/${songInfo._id}`} className="btn btn-info">
                 <FontAwesomeIcon icon="edit" />
             </Link>
-            <Link to={`/Song/Delete/${songInfo.id}`} className="btn btn-danger">
+            <Link to={`/Song/Delete/${songInfo._id}`} className="btn btn-danger">
                 <FontAwesomeIcon icon="trash-alt" />
             </Link>
             </td>

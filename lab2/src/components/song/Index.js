@@ -5,14 +5,23 @@ import Main from './Main';
 import Hero from './Hero';
 import SongApi from './SongApi';
 
-export default class Index extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            menuData: SongApi.getAll()
-        };
-    }    
-    render (){
+export default class Index extends Component {
+    state = {
+        menuData: {
+            userName : '',
+            songs : []
+        }
+    }
+
+    componentDidMount() {
+        let self = this;
+        SongApi.getAll(function(lMenuData){
+            self.setState({
+                menuData: lMenuData
+            });
+        });
+    }
+    render() {
         return (
             <Layout userName={this.state.menuData.userName}>
                 <Hero />
