@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 let userName = 'Geovanny';
-console.log(process.env);
-//let endpoint = 'http://localhost:8080/api/v1/songs';
-//let endpoint = 'http://ec2-52-87-80-195.compute-1.amazonaws.com:8080/api/v1/songs';
+
 let endpoint = process.env.REACT_APP_BACKEND_URL;
 
 class SongApi {

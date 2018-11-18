@@ -55,12 +55,12 @@ class SongForm extends React.Component {
                             <div className="col-md-6">
                                 <div className="form-group">
                                     <label htmlFor="Name">Name</label>
-                                    <input type="text" className="form-control" name="name" value={this.state.name} placeholder="Song's name" onChange={this.onFieldChange} />
+                                    <input type="text" className="form-control" name="name" value={this.state.name} placeholder="Song's name" onChange={this.onFieldChange} required="required"/>
                                 </div>
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
                                         <label htmlFor="Artist">Artist</label>
-                                        <input type="text" className="form-control" name="artist" value={this.state.artist} placeholder="Artist" onChange={this.onFieldChange} />
+                                        <input type="text" className="form-control" name="artist" value={this.state.artist} placeholder="Artist" onChange={this.onFieldChange} required="required"/>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label htmlFor="Stars">Stars</label>
@@ -70,7 +70,7 @@ class SongForm extends React.Component {
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
                                         <label htmlFor="Album">Album</label>
-                                        <input type="text" className="form-control" name="album" value={this.state.album} placeholder="My album" onChange={this.onFieldChange} />
+                                        <input type="text" className="form-control" name="album" value={this.state.album} placeholder="My album" onChange={this.onFieldChange} required="required"/>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label htmlFor="Year">Year</label>
